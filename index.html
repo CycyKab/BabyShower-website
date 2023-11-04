@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Baby Shower Invitation Form</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+    body {
+      background-color: transparent;
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      color: #000;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .main-card {
+      background-color: transparent;
+      width: 100%;
+      max-width: 800px;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .text-content {
+      width: 100%;
+      text-align: center;
+    }
+
+    .background-image {
+      width: 100%;
+      max-width: 800px;
+      border: 2px solid #bbb9b9;
+      border-radius: 1px;
+      box-shadow: 0 0 50px #00eeff;
+      overflow: hidden;
+      position: relative; /* Add relative positioning */
+      background-position: center center;
+    }
+
+
+    @keyframes animate {
+      100% {
+        filter: hue-rotate(360deg);
+      }
+    }
+
+    .blur-box {
+      background: rgba(253, 197, 206, 0.8);
+      padding: 90px;
+      width: 40%; /* Make the form smaller */
+      height: 60%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      position: absolute; /* Position the form absolutely */
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); /* Center the form */
+    }
+    .blur-box:hover {
+      animation: animate 1s linear infinite;
+    }
+
+    #babyShowerForm {
+      text-align: left;
+    }
+
+    .white-border {
+      border: 2px solid white;
+      padding: 5px;
+      border-radius: 5px;
+      margin: 5px;
+      width: 100%;
+    }
+
+    .submit-button {
+      width: 100%;
+      height: 40px;
+      background: #00eeff;
+      box-shadow: 0 0 10px #00eeff;
+      font-size: 16px;
+      color: #000;
+      font-weight: 500;
+      cursor: pointer;
+      border-radius: 15px;
+      border: none;
+      outline: none;
+      margin-top: 20px;
+    }
+
+    .form-title {
+      font-size: 24px;
+      color: #000;
+      margin-bottom: 20px;
+    }
+
+  
+    @media screen and (max-width: 600px) {
+      .blur-box {
+        width: 80%; 
+        height: 70%; 
+      }
+
+      .white-border {
+        width: 100%; 
+      }
+
+      .submit-button {
+        width: 100%; 
+      }
+
+      .form-title {
+        font-size: 20px; 
+      }
+
+      .background-image img {
+        width: 100%;
+        height: auto;
+      }
+
+      .blur-box {
+        padding: 60px; 
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="main-card">
+    <div class="text-content">
+      <div class="background-image">
+        <img src="formimg.jpg" alt="Background Image">
+        <div class="blur-box">
+          <h1 class="form-title">BABY SHOWER FORM</h1>
+          <form id="babyShowerForm">
+            <label for="day">Day:</label>
+            <input type="text" id="day" required class="white-border"><br>
+
+            <label for="month">Month:</label>
+            <input type="text" id="month" required class="white-border"><br>
+
+            <label for="date">Date:</label>
+            <input type="text" id="date" required class="white-border"><br>
+
+            <label for="year">Year:</label>
+            <input type="text" id="year" required class="white-border"><br>
+
+            <label for="startTime">Start Time:</label>
+            <input type="text" id="startTime" required class="white-border"><br>
+
+            <label for="endTime">End Time:</label>
+            <input type="text" id="endTime" required class="white-border"><br>
+
+            <label for="location">Location:</label>
+            <input type="text" id="location" required class="white-border"><br>
+
+            <label for="theme">Theme:</label>
+            <input type="text" id="theme" required class="white-border"><br>
+
+            <label for="theme">Event Manager Email Address:</label>
+            <input type="email" id="managerEmail" required class="white-border"><br>
+
+
+            <input type="submit" value="Submit" class="submit-button">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.getElementById('babyShowerForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const day = document.getElementById('day').value;
+      const month = document.getElementById('month').value;
+      const date = document.getElementById('date').value;
+      const year = document.getElementById('year').value;
+      const startTime = document.getElementById('startTime').value;
+      const endTime = document.getElementById('endTime').value;
+      const location = document.getElementById('location').value;
+      const theme = document.getElementById('theme').value;
+
+      
+      window.location.href = `babyShower.html?day=${day}&month=${month}&date=${date}&year=${year}&start-time=${startTime}&end-time=${endTime}&location=${location}&theme=${theme}`;
+    });
+  </script>
+</body>
+</html>
